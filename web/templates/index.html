@@ -3,8 +3,14 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>易双喜的博客主页</title>
+    <link rel="stylesheet" type="text/css" href="{{static_url('libs/semantic.css')}}"/>
+    <script type="text/javascript" src="{{static_url('libs/semantic.js')}}"></script>
 </head>
 <body>
-博客主页
+{%include "common/header.html"%}
+
+<div class="content"></div>
+
+{%include "common/footer.html"%}
 </body>
 </html>
