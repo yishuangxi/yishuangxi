@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    {%include "common/css.html"%}
+    <link rel="stylesheet" type="text/css" href="{{static_url('libs/kindeditor/themes/default/default.css')}}">
+    <script type="text/javascript" src="{{static_url('libs/kindeditor/kindeditor.js')}}"></script>
+</head>
+<body>
+{%include "common/header.html"%}
+
+<div id="body">
+    <form>
+        <div style="margin-bottom: 20px;">
+            <label>标题：</label>
+            <input type="text" class="u-ipt" placeholder="请输入博客标题">
+        </div>
+        <textarea id="kindeditor" style="width:800px;height:400px;visibility:hidden;"></textarea>
+
+        <input type="button" style="margin-top: 20px;" class="u-btn" value="发表">
+        <input type="button" class="u-btn" value="存草稿">
+    </form>
+
+
+</div>
+<script type="text/javascript">
+    KindEditor.ready(function (K) {
+        var editor = K.create('#kindeditor', {
+            allowFileManager: true
+        });
+
+
+    });
+</script>
+</body>
+</html>
