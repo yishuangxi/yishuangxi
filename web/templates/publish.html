@@ -14,9 +14,15 @@
     <form>
         <div style="margin-bottom: 20px;">
             <label>标题：</label>
-            <input type="text" class="u-ipt" placeholder="请输入博客标题">
+            <input name="title" type="text" class="u-ipt" placeholder="请输入博客标题">
+        </div> 
+        <div style="margin-bottom: 20px;">
+            <label>分类：</label>
+            <select name="cate">
+                
+            </select>
         </div>
-        <textarea id="kindeditor" style="width:800px;height:400px;visibility:hidden;"></textarea>
+        <textarea id="kindeditor" name="content" style="width:800px;height:400px;visibility:hidden;"></textarea>
 
         <input type="button" style="margin-top: 20px;" class="u-btn" value="发表">
         <input type="button" class="u-btn" value="存草稿">
