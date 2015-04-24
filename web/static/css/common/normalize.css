@@ -430,3 +430,7 @@ a{
     color:inherit;
     text-decoration: none;
 }
+
+html, body{
+  min-height:100%;
+}

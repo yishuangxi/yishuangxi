@@ -9,3 +9,7 @@ SETTINGS = {
     "debug": True,
     "cookie_secret": "EOFsnUQ/SeG2V39seKNw0hwYJSevqEjxs/+lMFfHSd4="
 }
+
+mysql_server = "127.0.0.1"
+mysql_db = "yishuangxi"
+user = "yisx"

@@ -4,11 +4,39 @@
     <meta charset="UTF-8">
     <title>易双喜的博客主页</title>
     {%include "common/css.html"%}
+    <link rel="stylesheet" href={{static_url('css/index.css')}} type="text/css" />
 </head>
 <body>
 {%include "common/header.html"%}
 
-<div class="content"></div>
+<div class="content">
+    {%include 'common/cates-list.html'%}
+    
+    <div class="blogs-list">
+        <h1 style="margin-top:0;padding-top:0;">最新</h1>
+        <ul>
+            {% for blog in blogs_latest %}
+                <li>
+                    <h2>{{blog['title']}} <span style='font-size:12px;color:#555'>发表于 {{blog['pub_time']}}</span></h2>
+                    <p>{{blog['content']}}</p>
+                </li>
+            {% end %}
+        </ul>
+        
+        <h1>最热</h1>
+        <ul>
+            {% for blog in blogs_hottest %}
+                <li>
+                    <h2>
+                        {{blog['title']}} 
+                        <a href="/blogs/{{blog['id']}}" style='font-size:12px;color:#555'>评论（{{blog['comment_counts']}}）</a>
+                    </h2>
+                    <p>{{blog['content']}}</p>
+                </li>
+            {% end %}
+        </ul>
+    </div>
+</div>
 
 {%include "common/footer.html"%}
 </body>

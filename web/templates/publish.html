@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <title></title>
     {%include "common/css.html"%}
-    <link rel="stylesheet" type="text/css" href="{{static_url('libs/kindeditor/themes/default/default.css')}}">
-    <script type="text/javascript" src="{{static_url('libs/kindeditor/kindeditor.js')}}"></script>
+    <link rel="stylesheet" type="text/css" href="{{static_url('js/plugins/kindeditor/themes/default/default.css')}}">
+    <script type="text/javascript" src={{static_url('js/plugins/kindeditor/kindeditor.js')}} ></script>
+    <script type="text/javascript">
+        KindEditor.ready(function (K) {
+            var editor = K.create('#kindeditor', {
+                allowFileManager: true
+            });
+        });
+    </script>
 </head>
 <body>
 {%include "common/header.html"%}
@@ -30,14 +37,7 @@
 
 
 </div>
-<script type="text/javascript">
-    KindEditor.ready(function (K) {
-        var editor = K.create('#kindeditor', {
-            allowFileManager: true
-        });
 
-
-    });
-</script>
+<script type="text/javascript" data-main={{static_url('js/publish.js')}} src={{static_url('js/core/require.js')}}></script>
 </body>
 </html>
