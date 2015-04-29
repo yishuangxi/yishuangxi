@@ -1,0 +1,31 @@
+.color-green{
+    color:green;
+}
+.color-blue{
+    color:blue;
+}
+.color-red{
+    color:red;
+}
+.icon-new, .icon-hot{
+    border:1px solid red;
+    border-radius:4px;
+    padding:1px 4px;
+    color:red;
+    font-size:12px;
+    margin:0 1em;
+}
+
+.fs-12{
+    font-size:12px;
+}
+.fs-14{
+    font-size:14px;
+}
+.fs-16{
+    font-size:16px;
+}
+
+.content-container{
+    max-width:900px;
+}

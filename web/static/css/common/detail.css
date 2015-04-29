@@ -1,0 +1,11 @@
+.blog-container{
+    max-width:900px;
+}
+
+.blog-container > h1{
+    font-size:1.2em;
+}
+
+.blog-container > h2{
+    font-size:1.1em;
+}

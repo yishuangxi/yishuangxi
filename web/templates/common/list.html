@@ -1,0 +1,13 @@
+<ul>
+    {% for blog in blogs %}
+        <li>
+            <h2>
+                <a class="color-green" target="iframe" href="/blogs/{{blog['id']}}">{{blog['title']}}</a> 
+                <span class='fs-12' style=';color:#555'>发表于 {{blog['pub_time']}}</span>
+                <a class='color-green' target="iframe" href="/blogs/{{blog['id']}}" style='font-size:12px;color:#555'>评论（{{blog['comment_counts']}}）</a>
+            </h2>
+            <div class='blog-container'>{% raw blog['content'] %}</p>
+            <a class='fs-14 color-blue' target="iframe" href="/blogs/{{blog['id']}}">查看详情</a>
+        </li>
+    {% end %}
+</ul>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>{{curr_cate['name']}}-易双喜的博客</title>
+    {%include "../common/css.html"%}
+    <link rel="stylesheet" href={{static_url('css/recommend.css')}} type="text/css" />
+</head>
+<body>
+    <!--最新博客列表-->
+    <h1>{{curr_cate['name']}}</h1>
+    {% include "../common/list.html"%}
+    
+    {% include "../common/js.html"%}
+</body>
+</html>

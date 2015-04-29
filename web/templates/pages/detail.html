@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>易双喜的博客主页</title>
+    {%include "../common/css.html"%}
+    <link rel="stylesheet" href={{static_url('css/pages/detail.css')}} type="text/css" />
+</head>
+<body>
+<!--博客详情-->
+<h1>{{blog['title']}}</h1>
+<div class='content-container blog-container'>
+    {%raw blog['content'] %} 
+</div>
+
+{%include "../common/footer.html"%}
+{% include "../common/js.html"%}
+</body>
+</html>

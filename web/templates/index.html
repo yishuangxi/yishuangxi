@@ -7,37 +7,35 @@
     <link rel="stylesheet" href={{static_url('css/index.css')}} type="text/css" />
 </head>
 <body>
-{%include "common/header.html"%}
-
-<div class="content">
-    {%include 'common/cates-list.html'%}
-    
-    <div class="blogs-list">
-        <h1 style="margin-top:0;padding-top:0;">最新</h1>
-        <ul>
-            {% for blog in blogs_latest %}
-                <li>
-                    <h2>{{blog['title']}} <span style='font-size:12px;color:#555'>发表于 {{blog['pub_time']}}</span></h2>
-                    <p>{{blog['content']}}</p>
-                </li>
-            {% end %}
-        </ul>
-        
-        <h1>最热</h1>
-        <ul>
-            {% for blog in blogs_hottest %}
-                <li>
-                    <h2>
-                        {{blog['title']}} 
-                        <a href="/blogs/{{blog['id']}}" style='font-size:12px;color:#555'>评论（{{blog['comment_counts']}}）</a>
-                    </h2>
-                    <p>{{blog['content']}}</p>
-                </li>
-            {% end %}
-        </ul>
-    </div>
+<!--分类列表-->
+<div class="content-left">
+    <h1 style="text-align:center"><a href="/">易双喜的博客</a></h1>
+    <ul class="cates-list">
+    <li>
+        <a href="/pages/latest" target="iframe">
+            最新 (<span class="color-green">10</span>)
+        </a>
+    </li> 
+    <li>
+        <a href="/pages/hotest" target="iframe">
+            最热 (<span class="color-green">10</span>)
+        </a>
+    </li> 
+    {%for cate in cates %}
+        <li>
+            <a href="/cates/{{cate['id']}}" target="iframe">
+                {{cate['name']}} (<span class="color-green">{{cate['counts']}}</span>)
+            </a>
+        </li> 
+    {%end%}
+    </ul>
 </div>
 
+<iframe name="iframe" class="content-right"></iframe>
+
+
+<script type="text/javascript" src={{static_url('js/core/jquery.js')}}></script>
+<script type="text/javascript" src={{static_url('js/index.js')}}></script>
 {%include "common/footer.html"%}
 </body>
 </html>

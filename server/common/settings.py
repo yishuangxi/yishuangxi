@@ -7,7 +7,8 @@ SETTINGS = {
     "template_path": os.path.join(BASE_DIR, "web", "templates"),
     "static_path": os.path.join(BASE_DIR, "web", "static"),
     "debug": True,
-    "cookie_secret": "EOFsnUQ/SeG2V39seKNw0hwYJSevqEjxs/+lMFfHSd4="
+    "cookie_secret": "EOFsnUQ/SeG2V39seKNw0hwYJSevqEjxs/+lMFfHSd4=",
+    "login_url":"/login"
 }
 
 mysql_server = "127.0.0.1"
