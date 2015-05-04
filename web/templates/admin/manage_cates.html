@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>分类管理</title>
     {%include "../common/css.html"%}
     <link rel="stylesheet" type="text/css" href="{{static_url('js/plugins/kindeditor/themes/default/default.css')}}">
     <script type="text/javascript" src={{static_url('js/plugins/kindeditor/kindeditor.js')}} ></script>
@@ -10,9 +10,13 @@
 <body>
 <div id="body">
     <ul>
-        <li><a href="/publish">我要发表</a></li>
-        <li><a href="/manage_cates">管理分类</a></li>
+        {% for cate in cates %}
+        <li>{{cate['name']}}</li>
+        {% end%}
     </ul>
 </div>
+
+<script type="text/javascript" src={{static_url('js/core/jquery.js')}}></script>
+<script type="text/javascript" src={{static_url('js/admin/admin.js')}}></script>
 </body>
 </html>

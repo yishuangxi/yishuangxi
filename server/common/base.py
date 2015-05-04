@@ -23,11 +23,12 @@ class BaseRequestHandler(tornado.web.RequestHandler):
             blog['content'] = blog['content'][0:50]+ '...'
 
 
+
 def db_closed(fn):
     def inner(self, *args, **kwargs):
         fn(self, *args, **kwargs)
         try:
-            self.db.close()
+            self.get_db().close()
         except:
             self.write("数据库关闭出错！")
     return inner

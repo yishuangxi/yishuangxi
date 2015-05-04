@@ -8,6 +8,8 @@ HANDLERS = [
     (r'/cates/(\d+)', index.CatePage),
     
     (r'/admin', admin.AdminPage),
-    (r'/publish', admin.PublishHandler),
-    (r'/login', admin.LoginPage)
+    (r'/publish', admin.PublishPage),
+    (r'/login', admin.LoginPage),
+    (r'/cate', admin.CateHandler),
+    (r'/manage_cates',admin.ManageCates)
 ]

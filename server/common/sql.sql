@@ -17,7 +17,8 @@ insert into users values (1, "yisx", "111");
 #博客类别表
 create table cates(
     id int unsigned not null auto_increment primary key,
-    name varchar(20) not null unique
+    name varchar(20) not null unique,
+    create_time timestamp not null default CURRENT_TIMESTAMP
 ) default charset=utf8;
 
 
@@ -27,6 +28,7 @@ create table blogs (
     title varchar(20) not null,
     ref_cate int unsigned not null references cates(id),
     content mediumtext not null,
+    draft tinyint(1) not null default 0,#只取0和1，0代表不是草稿，1代表是草稿
     pub_time timestamp not null default CURRENT_TIMESTAMP comment "博客发表时间",
     mod_time timestamp not null comment "博客最后修改时间"
 ) default charset=utf8;
@@ -47,7 +49,7 @@ create table comments(
 create view cates_view as
     select
         cates.*,
-        (select count(id) from blogs where ref_cate = cates.id) as counts
+        (select count(id) from blogs where draft=0 and ref_cate = cates.id) as counts
     from
         cates;
 
@@ -61,17 +63,17 @@ create view blogs_view as
 
 
 #插入一个默认分类，id=1
-insert into cates values (null, "其他");
-insert into cates values (null, "python");
-insert into cates values (null, "web");
+insert into cates values (null, "python", null);
+insert into cates values (null, "web", null);
+insert into cates values (null, "其他", null);
 
 #插入博客
-insert into blogs values(null, "博客标题1", 1, "<h1>博客文章的内容，这是一个大标题</h1><p>这是一个段落</p>", null, null);
-insert into blogs values(null, "博客标题2", 1, "<h1>博客文章的内容，这是一个大标题</h1><p>这是一个段落</p>", null, null);
-insert into blogs values(null, "博客标题3", 3, "<h1>博客文章的内容，这是一个大标题</h1><p>这是一个段落</p>", null, null);
-insert into blogs values(null, "博客标题4", 2, "<h1>博客文章的内容，这是一个大标题</h1><p>这是一个段落</p>", null, null);
-insert into blogs values(null, "博客标题5", 1, "<h1>博客文章的内容，这是一个大标题</h1><p>这是一个段落</p>", null, null);
-insert into blogs values(null, "博客标题6", 3, "<h1>博客文章的内容，这是一个大标题</h1><p>这是一个段落</p>", null, null);
+insert into blogs values(null, "博客标题1", 1, "<h1>博客文章的内容，这是一个大标题</h1><p>这是一个段落</p>",0, null, null);
+insert into blogs values(null, "博客标题2", 1, "<h1>博客文章的内容，这是一个大标题</h1><p>这是一个段落</p>",0, null, null);
+insert into blogs values(null, "博客标题3", 3, "<h1>博客文章的内容，这是一个大标题</h1><p>这是一个段落</p>",0, null, null);
+insert into blogs values(null, "博客标题4", 2, "<h1>博客文章的内容，这是一个大标题</h1><p>这是一个段落</p>",0, null, null);
+insert into blogs values(null, "博客标题5", 1, "<h1>博客文章的内容，这是一个大标题</h1><p>这是一个段落</p>",0, null, null);
+insert into blogs values(null, "博客标题6", 3, "<h1>博客文章的内容，这是一个大标题</h1><p>这是一个段落</p>",0, null, null);
 
 #插入评论
 insert into comments values(null, "这是评论1", 1, "yisx", "yisx@sina.com");

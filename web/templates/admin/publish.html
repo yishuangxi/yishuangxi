@@ -3,16 +3,9 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    {%include "common/css.html"%}
+    {%include "../common/css.html"%}
     <link rel="stylesheet" type="text/css" href="{{static_url('js/plugins/kindeditor/themes/default/default.css')}}">
     <script type="text/javascript" src={{static_url('js/plugins/kindeditor/kindeditor.js')}} ></script>
-    <script type="text/javascript">
-        KindEditor.ready(function (K) {
-            var editor = K.create('#kindeditor', {
-                allowFileManager: true
-            });
-        });
-    </script>
 </head>
 <body>
 <div id="body">
@@ -24,18 +17,29 @@
         <div style="margin-bottom: 20px;">
             <label>分类：</label>
             <select name="cate">
-                
+                {%for cate in cates%}
+                <option value={{cate['id']}} >{{cate['name']}}</option>
+                {%end%}
             </select>
+            <a class="new-cate" href="javascript:;" style="color:blue;font-size:14px;text-decoration:underline;margin:0 10px 0 20px;">
+                新建分类
+            </a>
+            <span class="new-cate-container" style="display:none">
+                <input type="text" name="cate_name">
+                <input class="cate-save" type="button" value="保存">
+                <input class="cate-cancel" type="button" value="取消">
+            </span>
         </div>
         <textarea id="kindeditor" name="content" style="width:800px;height:400px;visibility:hidden;"></textarea>
 
-        <input type="button" style="margin-top: 20px;" class="u-btn" value="发表">
-        <input type="button" class="u-btn" value="存草稿">
+        <input id="publish" type="button" style="margin-top: 20px;" class="u-btn" value="发表">
+        <input id="draft" type="button" class="u-btn" value="存草稿">
     </form>
 
 
 </div>
 
-<script type="text/javascript" data-main={{static_url('js/publish.js')}} src={{static_url('js/core/require.js')}}></script>
+<script type="text/javascript" src={{static_url('js/core/jquery.js')}}></script>
+<script type="text/javascript" src={{static_url('js/admin/admin.js')}}></script>
 </body>
 </html>
